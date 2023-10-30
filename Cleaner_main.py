@@ -4,19 +4,20 @@ import numpy as np
 
 
 #setup
-path=str(input("Path: "))
+path=str(input("Path: ")).strip('"')
 sheetname=str(input("Worksheet: "))
-colum=str(input("Header: "))
+y_cord=str(input("Y coordinate of the column: ")).upper()
 lenght=int(input("Lenght: "))
-y_cord=str(input("Y coordinate of the column: "))
 
-def __main__(path,sheetname,colum,lenght):
+def __main__(path,sheetname,y_cord,lenght):
+
+    al='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     #Creating a new list with only the float values
         #pandas to read dataframe
     data=pd.read_excel(path)
     new=[]
     #Iterating through the column
-    for i in data[colum].values:
+    for i in data.iloc[:,al.find(y_cord)]:
         strtofloat=""
         #Already floats dont get edited
         if isinstance(i,int) or isinstance(i,float) or i=='':
@@ -35,10 +36,10 @@ def __main__(path,sheetname,colum,lenght):
     #Iterating through the columns and replacing values
     def change_cell_column(lenght):
         for i in range (2,lenght+2):
-            sheet[f'{y_cord.upper()}{i}']=new[i-2]
+            sheet[f'{y_cord}{i}']=new[i-2]
 
     change_cell_column(lenght)
 
     file.save(path)
 
-__main__(path,sheetname,colum,lenght)
+__main__(path,sheetname,y_cord,lenght)
