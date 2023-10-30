@@ -1,4 +1,4 @@
-# Data-Cleaner-Excel
+# Data-string-to-float-Excel
 Best used for survey data. Converts dirty strings to clean floats
 
 Required dependancies:
