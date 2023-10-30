@@ -1,6 +1,11 @@
 # Data-Cleaner-Excel
 Best used for survey data. Converts dirty strings to clean floats
 
+Required dependancies:
+Pandas
+Numpy
+OpenPyXl
+
 Steps to use:
 1. Enter the path to your excel file with a prefix 'r'.
            E.g. r"Your Path Here"
